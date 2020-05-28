@@ -11,6 +11,7 @@ namespace Recognition
     {
         static public string pathPatterns = @"stats/patterns.json";
         static public string pathLettersFrequency = @"stats/letterFrequency.json";
+        static public string BorderPath = @"stats/border.txt";
 
         static public List<UserPattern> UserPatterns = JsonConvert.DeserializeObject<List<UserPattern>>(File.ReadAllText(pathPatterns));
         //Сгенерированные сессии
@@ -44,6 +45,8 @@ namespace Recognition
             List<Letter> letters = new List<Letter>();
 
             List<Letter> SortedList = new List<Letter>();
+
+            GetBorder();
 
             if (Distance.Contains(SelectedMethod))
             {
@@ -147,6 +150,9 @@ namespace Recognition
                 SortedList = letters.OrderByDescending(o => o.Value).ToList();
             }
 
+            if (UnknownUserBorder(SessionToDetermine, UserPatterns.FirstOrDefault(x => x.Login == RecognizedUserLogin).ExpectedValues))
+                RecognizedUserLogin = "unknown";
+
             //форма результата
             Result result = new Result(RecognizedUserLogin, SortedList);
             result.Show();
@@ -159,6 +165,8 @@ namespace Recognition
             string RecognizedUserLogin = "unknown";
 
             List<Letter> letters = new List<Letter>();
+
+            GetBorder();
 
             foreach (Session SessionToDetermine in Sessions)
             {
@@ -206,6 +214,9 @@ namespace Recognition
                     {
                         letters.Add(new Letter(Sessions[i].Login, differences[i]));
                     }
+
+                    if (UnknownUserBorder(SessionToDetermine, UserPatterns.FirstOrDefault(x => x.Login == RecognizedUserLogin).ExpectedValues))
+                        RecognizedUserLogin = "unknown";
 
                     userСomparisonList.Add(new UserСomparison(SessionToDetermine.Login, RecognizedUserLogin));
                 }
@@ -260,6 +271,9 @@ namespace Recognition
                     {
                         letters.Add(new Letter(Sessions[j].Login, arr[j]));
                     }
+
+                    if (UnknownUserBorder(SessionToDetermine, UserPatterns.FirstOrDefault(x => x.Login == RecognizedUserLogin).ExpectedValues))
+                        RecognizedUserLogin = "unknown";
 
                     userСomparisonList.Add(new UserСomparison(SessionToDetermine.Login, RecognizedUserLogin));
                 }
@@ -328,6 +342,33 @@ namespace Recognition
             }
 
             return Math.Sqrt(summOfDifference);
+        }
+
+        //окрестность сессии
+        static private double Border = 50;
+
+        static public void GetBorder()
+        {
+            Border = Convert.ToDouble(File.ReadAllText(BorderPath));
+        }
+
+        //проверка на неопознанного пользователя
+        static bool UnknownUserBorder(Session currentSession, List<Letter> userPattern)
+        {
+            double letterSum = 0;
+
+            foreach (Letter letter in currentSession.Letters)
+                letterSum += letter.Value;
+
+            double patternSum = 0;
+
+            foreach (Letter letter in userPattern)
+                patternSum += letter.Value;
+
+            if (Math.Abs(letterSum - patternSum) > patternSum * Border / 100)
+                return true;
+            else
+                return false;
         }
     }
 }

@@ -31,10 +31,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.UserLogin = new System.Windows.Forms.TextBox();
             this.listView = new System.Windows.Forms.ListView();
+            this.Номер = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Логин = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Расстояние = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
-            this.Номер = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -67,6 +67,11 @@
             this.listView.TabIndex = 3;
             this.listView.UseCompatibleStateImageBehavior = false;
             // 
+            // Номер
+            // 
+            this.Номер.Text = "Номер";
+            this.Номер.Width = 50;
+            // 
             // Логин
             // 
             this.Логин.Text = "Логин";
@@ -85,11 +90,6 @@
             this.label2.Size = new System.Drawing.Size(107, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Оценка расстояний";
-            // 
-            // Номер
-            // 
-            this.Номер.Text = "Номер";
-            this.Номер.Width = 50;
             // 
             // Result
             // 

@@ -15,7 +15,7 @@ namespace Recognition
             "Ближайшего соседа"
         };
 
-        public void Calculate()
+        public List<List<string>> Calculate()
         {
             MetricsCalculation metricsCalculation = new MetricsCalculation(pathSessions);
 
@@ -38,6 +38,11 @@ namespace Recognition
                 DataToForm.Add(vs);
             }
 
+            return DataToForm;
+        }
+
+        public void ErrorsForm(List<List<string>> DataToForm)
+        {
             Errors errors = new Errors(DataToForm);
 
             errors.Show();

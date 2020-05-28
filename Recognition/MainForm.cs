@@ -31,11 +31,6 @@ namespace Recognition
 
             openFileDialog.Filter = "All files (*.*)|*.*|Text files(*.txt)|*.txt|JSON files(*.json)|*.json";
 
-            SetComboboxItems();
-        }
-
-        private void SetComboboxItems()
-        {
             foreach (string d in Distance)
                 ChooseMethod.Items.Add(d);
 
@@ -71,7 +66,9 @@ namespace Recognition
         {
             ErrorsCalculation errors = new ErrorsCalculation();
 
-            errors.Calculate();
+            var data = errors.Calculate();
+
+            errors.ErrorsForm(data);
         }
     }
 }
