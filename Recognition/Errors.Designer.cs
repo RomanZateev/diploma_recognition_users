@@ -28,27 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.columnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listView = new System.Windows.Forms.ListView();
+            this.Метод = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.FAR = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.FRR = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Точность = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listView1
+            // listView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader,
+            this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Метод,
             this.FAR,
             this.FRR,
             this.Точность});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 55);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(382, 181);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView.HideSelection = false;
+            this.listView.Location = new System.Drawing.Point(12, 55);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(400, 181);
+            this.listView.TabIndex = 0;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            // 
+            // Метод
+            // 
+            this.Метод.Text = "Метод";
+            this.Метод.Width = 200;
+            // 
+            // FAR
+            // 
+            this.FAR.Text = "FAR";
+            this.FAR.Width = 40;
+            // 
+            // FRR
+            // 
+            this.FRR.Text = "FRR";
+            this.FRR.Width = 40;
+            // 
+            // Точность
+            // 
+            this.Точность.Text = "Точность";
+            this.Точность.Width = 100;
             // 
             // label1
             // 
@@ -59,33 +79,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Точность методов";
             // 
-            // columnHeader
-            // 
-            this.columnHeader.Text = "";
-            this.columnHeader.Width = 150;
-            // 
-            // FAR
-            // 
-            this.FAR.Text = "FAR";
-            this.FAR.Width = 90;
-            // 
-            // FRR
-            // 
-            this.FRR.Text = "FRR";
-            this.FRR.Width = 90;
-            // 
-            // Точность
-            // 
-            this.Точность.Text = "Точность";
-            this.Точность.Width = 90;
-            // 
             // Errors
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 251);
+            this.ClientSize = new System.Drawing.Size(424, 251);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listView);
             this.Name = "Errors";
             this.Text = "Errors";
             this.ResumeLayout(false);
@@ -95,9 +95,9 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ColumnHeader columnHeader;
+        private System.Windows.Forms.ColumnHeader Метод;
         private System.Windows.Forms.ColumnHeader FAR;
         private System.Windows.Forms.ColumnHeader FRR;
         private System.Windows.Forms.ColumnHeader Точность;
