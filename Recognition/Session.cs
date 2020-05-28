@@ -1,13 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Recognition
 {
     public class Session
     {
-        public List<Letter> letters { get; set; }
+        public string Login { get; set; }
+
+        public List<Letter> Letters { get; set; }
+
+        public Session()
+        {
+
+        }
+
+        public Session(string login)
+        {
+            Login = login;
+        }
     }
 }

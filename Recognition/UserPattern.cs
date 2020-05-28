@@ -8,10 +8,10 @@ namespace Recognition
 {
     public class UserPattern
     {
-        public string login { get; set; }
+        public string Login { get; set; }
 
-        public List<Letter> expectedValues { get; set; }
+        public List<Letter> ExpectedValues { get; set; }
 
-        public List<Letter> dispersions { get; set; }
+        public List<Letter> Dispersions { get; set; }
     }
 }

@@ -28,166 +28,127 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.calculate = new System.Windows.Forms.Button();
-            this.method = new System.Windows.Forms.ComboBox();
+            this.RecognizeSession = new System.Windows.Forms.Button();
+            this.ChooseMethod = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.user = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.chooseFile = new System.Windows.Forms.Button();
-            this.far = new System.Windows.Forms.TextBox();
-            this.frr = new System.Windows.Forms.TextBox();
-            this.correctness = new System.Windows.Forms.TextBox();
+            this.ChooseFile = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.AllSessions = new System.Windows.Forms.TextBox();
+            this.SessionIndex = new System.Windows.Forms.TextBox();
+            this.MethodsAccuracy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // calculate
+            // RecognizeSession
             // 
-            this.calculate.Location = new System.Drawing.Point(356, 222);
-            this.calculate.Name = "calculate";
-            this.calculate.Size = new System.Drawing.Size(139, 32);
-            this.calculate.TabIndex = 0;
-            this.calculate.Text = "Рассчитать";
-            this.calculate.UseVisualStyleBackColor = true;
-            this.calculate.Click += new System.EventHandler(this.calculate_Click);
+            this.RecognizeSession.Location = new System.Drawing.Point(90, 253);
+            this.RecognizeSession.Name = "RecognizeSession";
+            this.RecognizeSession.Size = new System.Drawing.Size(139, 42);
+            this.RecognizeSession.TabIndex = 0;
+            this.RecognizeSession.Text = "Распознать";
+            this.RecognizeSession.UseVisualStyleBackColor = true;
+            this.RecognizeSession.Click += new System.EventHandler(this.Calculate_Click);
             // 
-            // method
+            // ChooseMethod
             // 
-            this.method.FormattingEnabled = true;
-            this.method.Location = new System.Drawing.Point(39, 199);
-            this.method.Name = "method";
-            this.method.Size = new System.Drawing.Size(235, 21);
-            this.method.TabIndex = 1;
+            this.ChooseMethod.FormattingEnabled = true;
+            this.ChooseMethod.Location = new System.Drawing.Point(42, 185);
+            this.ChooseMethod.Name = "ChooseMethod";
+            this.ChooseMethod.Size = new System.Drawing.Size(235, 21);
+            this.ChooseMethod.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(39, 183);
+            this.label1.Location = new System.Drawing.Point(39, 169);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(123, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Метод распознавания:";
             // 
-            // user
+            // ChooseFile
             // 
-            this.user.FormattingEnabled = true;
-            this.user.Location = new System.Drawing.Point(39, 132);
-            this.user.Name = "user";
-            this.user.Size = new System.Drawing.Size(235, 21);
-            this.user.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 116);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Пользователь системы:";
-            // 
-            // chooseFile
-            // 
-            this.chooseFile.Location = new System.Drawing.Point(39, 54);
-            this.chooseFile.Name = "chooseFile";
-            this.chooseFile.Size = new System.Drawing.Size(235, 27);
-            this.chooseFile.TabIndex = 5;
-            this.chooseFile.Text = "Выбрать";
-            this.chooseFile.UseVisualStyleBackColor = true;
-            this.chooseFile.Click += new System.EventHandler(this.chooseFile_Click);
-            // 
-            // far
-            // 
-            this.far.Location = new System.Drawing.Point(413, 76);
-            this.far.Name = "far";
-            this.far.Size = new System.Drawing.Size(82, 20);
-            this.far.TabIndex = 6;
-            // 
-            // frr
-            // 
-            this.frr.Location = new System.Drawing.Point(413, 129);
-            this.frr.Name = "frr";
-            this.frr.Size = new System.Drawing.Size(82, 20);
-            this.frr.TabIndex = 7;
-            // 
-            // correctness
-            // 
-            this.correctness.Location = new System.Drawing.Point(413, 180);
-            this.correctness.Name = "correctness";
-            this.correctness.Size = new System.Drawing.Size(82, 20);
-            this.correctness.TabIndex = 8;
+            this.ChooseFile.Location = new System.Drawing.Point(39, 54);
+            this.ChooseFile.Name = "ChooseFile";
+            this.ChooseFile.Size = new System.Drawing.Size(238, 27);
+            this.ChooseFile.TabIndex = 5;
+            this.ChooseFile.Text = "Выбрать";
+            this.ChooseFile.UseVisualStyleBackColor = true;
+            this.ChooseFile.Click += new System.EventHandler(this.ChooseFile_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(39, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 13);
+            this.label3.Size = new System.Drawing.Size(77, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Пусть к файлу:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(353, 76);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "FAR:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(353, 129);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "FRR:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(353, 183);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Точность:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(410, 38);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 13);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Ошибки";
+            this.label3.Text = "Путь к файлу:";
             // 
             // openFileDialog
             // 
             this.openFileDialog.FileName = "openFileDialog";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(39, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Сессий в файле:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(39, 136);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(128, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Выбрать номер сессии:";
+            // 
+            // AllSessions
+            // 
+            this.AllSessions.Location = new System.Drawing.Point(173, 101);
+            this.AllSessions.Name = "AllSessions";
+            this.AllSessions.ReadOnly = true;
+            this.AllSessions.Size = new System.Drawing.Size(80, 20);
+            this.AllSessions.TabIndex = 16;
+            // 
+            // SessionIndex
+            // 
+            this.SessionIndex.Location = new System.Drawing.Point(173, 133);
+            this.SessionIndex.Name = "SessionIndex";
+            this.SessionIndex.Size = new System.Drawing.Size(80, 20);
+            this.SessionIndex.TabIndex = 17;
+            // 
+            // MethodsAccuracy
+            // 
+            this.MethodsAccuracy.Location = new System.Drawing.Point(42, 212);
+            this.MethodsAccuracy.Name = "MethodsAccuracy";
+            this.MethodsAccuracy.Size = new System.Drawing.Size(235, 24);
+            this.MethodsAccuracy.TabIndex = 20;
+            this.MethodsAccuracy.Text = "Точность методов";
+            this.MethodsAccuracy.UseVisualStyleBackColor = true;
+            this.MethodsAccuracy.Click += new System.EventHandler(this.MethodsAccuracy_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 274);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.correctness);
-            this.Controls.Add(this.frr);
-            this.Controls.Add(this.far);
-            this.Controls.Add(this.chooseFile);
+            this.ClientSize = new System.Drawing.Size(310, 310);
+            this.Controls.Add(this.MethodsAccuracy);
+            this.Controls.Add(this.SessionIndex);
+            this.Controls.Add(this.AllSessions);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.user);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ChooseFile);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.method);
-            this.Controls.Add(this.calculate);
+            this.Controls.Add(this.ChooseMethod);
+            this.Controls.Add(this.RecognizeSession);
             this.Name = "MainForm";
             this.Text = "Распознавание";
             this.ResumeLayout(false);
@@ -197,21 +158,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Button calculate;
-        private System.Windows.Forms.ComboBox method;
+        private System.Windows.Forms.Button RecognizeSession;
+        private System.Windows.Forms.ComboBox ChooseMethod;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox user;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button chooseFile;
-        private System.Windows.Forms.TextBox far;
-        private System.Windows.Forms.TextBox frr;
-        private System.Windows.Forms.TextBox correctness;
+        private System.Windows.Forms.Button ChooseFile;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox AllSessions;
+        private System.Windows.Forms.TextBox SessionIndex;
+        private System.Windows.Forms.Button MethodsAccuracy;
     }
 }
 
