@@ -9,15 +9,15 @@ namespace Recognition
     //распознавание
     public class MetricsCalculation
     {
-        static public string pathPatterns = @"stats/patterns.json";
-        static public string pathLettersFrequency = @"stats/letterFrequency.json";
-        static public string BorderPath = @"stats/border.txt";
+        static private string pathPatterns = @"stats/patterns.json";
+        static private string pathLettersFrequency = @"stats/letterFrequency.json";
+        static private string BorderPath = @"stats/border.txt";
 
-        static public List<UserPattern> UserPatterns = JsonConvert.DeserializeObject<List<UserPattern>>(File.ReadAllText(pathPatterns));
+        static private List<UserPattern> UserPatterns = JsonConvert.DeserializeObject<List<UserPattern>>(File.ReadAllText(pathPatterns));
         //Сгенерированные сессии
-        static public List<Session> Sessions = new List<Session>();
+        static private List<Session> Sessions = new List<Session>();
         //Частотность букв
-        static public List<Letter> LettersFrequency = JsonConvert.DeserializeObject<List<Letter>>(File.ReadAllText(pathLettersFrequency));
+        static private List<Letter> LettersFrequency = JsonConvert.DeserializeObject<List<Letter>>(File.ReadAllText(pathLettersFrequency));
 
         static readonly List<string> Distance = new List<string> {
             "Эвклидово расстояние",
@@ -25,6 +25,9 @@ namespace Recognition
             "Манхэттенское расстояние",
             "Манхэттенское расстояние + частотность"
         };
+
+        //окрестность сессии
+        static private double Border = 50;
 
         public MetricsCalculation(string pathSessions)
         {
@@ -62,13 +65,13 @@ namespace Recognition
                             difference = Evklidean(SessionToDetermine, user.ExpectedValues);
                             break;
                         case "Эвклидово расстояние + частотность":
-                            difference = EvklFrequency(SessionToDetermine, user.ExpectedValues);
+                            difference = EvklideanFrequency(SessionToDetermine, user.ExpectedValues);
                             break;
                         case "Манхэттенское расстояние":
                             difference = Manhetten(SessionToDetermine, user.ExpectedValues);
                             break;
                         case "Манхэттенское расстояние + частотность":
-                            difference = ManhFrequency(SessionToDetermine, user.ExpectedValues);
+                            difference = ManhettenFrequency(SessionToDetermine, user.ExpectedValues);
                             break;
                     }
                     differences.Add(difference);
@@ -184,13 +187,13 @@ namespace Recognition
                                 difference = Evklidean(SessionToDetermine, user.ExpectedValues);
                                 break;
                             case "Эвклидово расстояние + частотность":
-                                difference = EvklFrequency(SessionToDetermine, user.ExpectedValues);
+                                difference = EvklideanFrequency(SessionToDetermine, user.ExpectedValues);
                                 break;
                             case "Манхэттенское расстояние":
                                 difference = Manhetten(SessionToDetermine, user.ExpectedValues);
                                 break;
                             case "Манхэттенское расстояние + частотность":
-                                difference = ManhFrequency(SessionToDetermine, user.ExpectedValues);
+                                difference = ManhettenFrequency(SessionToDetermine, user.ExpectedValues);
                                 break;
                         }
                         differences.Add(difference);
@@ -282,7 +285,7 @@ namespace Recognition
             return userСomparisonList;
         }
 
-        static double ManhFrequency(Session currentSession, List<Letter> userPattern)
+        private double ManhettenFrequency(Session currentSession, List<Letter> userPattern)
         {
             double summOfDifference = 0;
 
@@ -298,7 +301,7 @@ namespace Recognition
             return summOfDifference;
         }
 
-        static double Manhetten(Session currentSession, List<Letter> userPattern)
+        private double Manhetten(Session currentSession, List<Letter> userPattern)
         {
             double summOfDifference = 0;
 
@@ -313,7 +316,7 @@ namespace Recognition
             return summOfDifference;
         }
 
-        static double EvklFrequency(Session currentSession, List<Letter> userPattern)
+        private double EvklideanFrequency(Session currentSession, List<Letter> userPattern)
         {
             double summOfDifference = 0;
 
@@ -329,7 +332,7 @@ namespace Recognition
             return Math.Sqrt(summOfDifference);
         }
 
-        static double Evklidean(Session currentSession, List<Letter> userPattern)
+        private double Evklidean(Session currentSession, List<Letter> userPattern)
         {
             double summOfDifference = 0;
 
@@ -344,16 +347,13 @@ namespace Recognition
             return Math.Sqrt(summOfDifference);
         }
 
-        //окрестность сессии
-        static private double Border = 50;
-
         static public void GetBorder()
         {
             Border = Convert.ToDouble(File.ReadAllText(BorderPath));
         }
 
         //проверка на неопознанного пользователя
-        static bool UnknownUserBorder(Session currentSession, List<Letter> userPattern)
+        private bool UnknownUserBorder(Session currentSession, List<Letter> userPattern)
         {
             double letterSum = 0;
 

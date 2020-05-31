@@ -77,20 +77,20 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 13);
+            this.label2.Size = new System.Drawing.Size(186, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Окрестность сессии в %:";
+            this.label2.Text = "Граница окрестности шаблона в %:";
             // 
             // BorderInPercent
             // 
-            this.BorderInPercent.Location = new System.Drawing.Point(153, 31);
+            this.BorderInPercent.Location = new System.Drawing.Point(196, 32);
             this.BorderInPercent.Name = "BorderInPercent";
             this.BorderInPercent.Size = new System.Drawing.Size(54, 20);
             this.BorderInPercent.TabIndex = 3;
             // 
             // SetBorder
             // 
-            this.SetBorder.Location = new System.Drawing.Point(225, 29);
+            this.SetBorder.Location = new System.Drawing.Point(293, 30);
             this.SetBorder.Name = "SetBorder";
             this.SetBorder.Size = new System.Drawing.Size(81, 23);
             this.SetBorder.TabIndex = 4;

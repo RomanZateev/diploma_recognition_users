@@ -33,7 +33,7 @@ namespace Recognition
                 //FRR
                 vs.Add(CalculateFRR(res).ToString());
                 //Точность
-                vs.Add(Correctness(res).ToString());
+                vs.Add(CalculateCorrectness(res).ToString());
 
                 DataToForm.Add(vs);
             }
@@ -44,7 +44,6 @@ namespace Recognition
         public void ErrorsForm(List<List<string>> DataToForm)
         {
             Errors errors = new Errors(DataToForm);
-
             errors.Show();
         }
 
@@ -71,7 +70,7 @@ namespace Recognition
         }
 
         //подсчет точности
-        private double Correctness(List<UserСomparison> userСomparisons)
+        private double CalculateCorrectness(List<UserСomparison> userСomparisons)
         {
             int summ = 0;
             foreach (UserСomparison userСomparison in userСomparisons)

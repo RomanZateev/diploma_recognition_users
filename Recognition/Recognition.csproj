@@ -49,7 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DictionaryAsArrayResolver.cs" />
     <Compile Include="Errors.cs">
       <SubType>Form</SubType>
     </Compile>
