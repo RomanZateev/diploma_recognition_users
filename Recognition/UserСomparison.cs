@@ -16,10 +16,10 @@
 
         public bool FAR()
         {
-            if (realUser.Equals(recognizeduser) || recognizeduser.Equals("unknown"))
-                return false;
-            else
+            if (!(realUser.Equals(recognizeduser) || recognizeduser.Equals("unknown")))
                 return true;
+            else
+                return false;
         }
 
         public bool FRR()

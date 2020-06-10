@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace Recognition
 {
@@ -27,7 +28,7 @@ namespace Recognition
         };
 
         //окрестность сессии
-        static private double Border = 50;
+        static private double Border = 5;
 
         public MetricsCalculation(string pathSessions)
         {
@@ -39,6 +40,7 @@ namespace Recognition
 
         }
 
+        //распознавание
         public void RecognitionMethodCalculation(string SelectedMethod, int SelectedSessionIndex)
         {
             var SessionToDetermine = Sessions[SelectedSessionIndex];
@@ -89,11 +91,11 @@ namespace Recognition
                     }
                 }
 
-                RecognizedUserLogin = Sessions[index].Login;
+                RecognizedUserLogin = UserPatterns[index].Login;
 
                 for (int i = 0; i < differences.Count; i++)
                 {
-                    letters.Add(new Letter(Sessions[i].Login, differences[i]));
+                    letters.Add(new Letter(UserPatterns[i].Login, differences[i]));
                 }
 
                 SortedList = letters.OrderBy(o => o.Value).ToList();
@@ -143,11 +145,11 @@ namespace Recognition
                         maxIndex = m;
                     }
 
-                RecognizedUserLogin = Sessions[maxIndex].Login;
+                RecognizedUserLogin = UserPatterns[maxIndex].Login;
 
                 for (int j = 0; j < arr.Length; j++)
                 {
-                    letters.Add(new Letter(Sessions[j].Login, arr[j]));
+                    letters.Add(new Letter(UserPatterns[j].Login, arr[j]));
                 }
 
                 SortedList = letters.OrderByDescending(o => o.Value).ToList();
@@ -161,6 +163,7 @@ namespace Recognition
             result.Show();
         }
 
+        // расчет ошибок
         public List<UserСomparison> RecognitionList(string method)
         {
             List<UserСomparison> userСomparisonList = new List<UserСomparison>();
@@ -365,10 +368,10 @@ namespace Recognition
             foreach (Letter letter in userPattern)
                 patternSum += letter.Value;
 
-            if (Math.Abs(letterSum - patternSum) > patternSum * Border / 100)
-                return true;
-            else
+            if (Math.Abs(letterSum - patternSum) > Border)
                 return false;
+            else
+                return true;
         }
     }
 }

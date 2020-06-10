@@ -101,7 +101,7 @@
             this.Controls.Add(this.UserLogin);
             this.Controls.Add(this.label1);
             this.Name = "Result";
-            this.Text = "Result";
+            this.Text = "Результат";
             this.ResumeLayout(false);
             this.PerformLayout();
 

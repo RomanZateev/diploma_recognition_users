@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Windows.Forms;
 
 namespace Recognition
@@ -40,14 +41,25 @@ namespace Recognition
 
         private void Calculate_Click(object sender, EventArgs e)
         {
-            //считываю что ввел поьзователь
-            string SelectedMethod = ChooseMethod.SelectedItem.ToString();
-            string SelectedSessionIndex = SessionIndex.Text.ToString();
+            var SelectedSessionIndex = SessionIndex.Text;
+            var SelectedMethod = ChooseMethod.SelectedItem;
+
+            if (SelectedSessionIndex == "")
+            {
+                MessageBox.Show("Выберите номер сессии");
+                return;
+            }
+
+            if (SelectedMethod == null)
+            {
+                MessageBox.Show("Выберите метод идентификации");
+                return;
+            }
 
             //распознавание
             MetricsCalculation metricsCalculation = new MetricsCalculation(pathSessions);
 
-            metricsCalculation.RecognitionMethodCalculation(SelectedMethod, Convert.ToInt32(SelectedSessionIndex));
+            metricsCalculation.RecognitionMethodCalculation(SelectedMethod.ToString(), Convert.ToInt32(SelectedSessionIndex.ToString()));
         }
 
         private void ChooseFile_Click(object sender, EventArgs e)
@@ -57,7 +69,6 @@ namespace Recognition
             {
                 pathSessions = openFileDialog.FileName;
                 Sessions = JsonConvert.DeserializeObject<List<Session>>(File.ReadAllText(pathSessions));
-
                 AllSessions.Text = Sessions.Count().ToString();
             }
         }
