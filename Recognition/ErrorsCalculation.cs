@@ -8,8 +8,8 @@ namespace Recognition
         static public string pathSessions = @"stats/sessions.json";
 
         static readonly List<string> Methods = new List<string> {
-            "Эвклидово расстояние",
-            "Эвклидово расстояние + частотность",
+            "Евклидово расстояние",
+            "Евклидово расстояние + частотность",
             "Манхэттенское расстояние",
             "Манхэттенское расстояние + частотность",
             "Ближайшего соседа"

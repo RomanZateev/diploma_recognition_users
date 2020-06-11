@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Windows.Forms;
 
 namespace Recognition
@@ -20,8 +19,8 @@ namespace Recognition
         };
 
         static readonly List<string> Distance = new List<string> {
-            "Эвклидово расстояние",
-            "Эвклидово расстояние + частотность",
+            "Евклидово расстояние",
+            "Евклидово расстояние + частотность",
             "Манхэттенское расстояние",
             "Манхэттенское расстояние + частотность"
         };

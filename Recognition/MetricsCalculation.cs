@@ -21,8 +21,8 @@ namespace Recognition
         static private List<Letter> LettersFrequency = JsonConvert.DeserializeObject<List<Letter>>(File.ReadAllText(pathLettersFrequency));
 
         static readonly List<string> Distance = new List<string> {
-            "Эвклидово расстояние",
-            "Эвклидово расстояние + частотность",
+            "Евклидово расстояние",
+            "Евклидово расстояние + частотность",
             "Манхэттенское расстояние",
             "Манхэттенское расстояние + частотность"
         };
@@ -63,10 +63,10 @@ namespace Recognition
                 {
                     switch (SelectedMethod)
                     {
-                        case "Эвклидово расстояние":
+                        case "Евклидово расстояние":
                             difference = Evklidean(SessionToDetermine, user.ExpectedValues);
                             break;
-                        case "Эвклидово расстояние + частотность":
+                        case "Евклидово расстояние + частотность":
                             difference = EvklideanFrequency(SessionToDetermine, user.ExpectedValues);
                             break;
                         case "Манхэттенское расстояние":
@@ -186,10 +186,10 @@ namespace Recognition
                     {
                         switch (method)
                         {
-                            case "Эвклидово расстояние":
+                            case "Евклидово расстояние":
                                 difference = Evklidean(SessionToDetermine, user.ExpectedValues);
                                 break;
-                            case "Эвклидово расстояние + частотность":
+                            case "Евклидово расстояние + частотность":
                                 difference = EvklideanFrequency(SessionToDetermine, user.ExpectedValues);
                                 break;
                             case "Манхэттенское расстояние":
